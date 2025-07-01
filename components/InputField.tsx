@@ -1,12 +1,12 @@
 import {
-  TextInput,
-  View,
-  Text,
   Image,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
   Keyboard,
+  KeyboardAvoidingView,
   Platform,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 
 import { InputFieldProps } from "@/types/type";

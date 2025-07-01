@@ -1,13 +1,13 @@
-import { Text, ScrollView, View, Image, Alert } from "react-native";
-import { useState } from "react";
-import { icons, images } from "@/constants";
-import InputField from "@/components/InputField";
 import CustomButton from "@/components/CustomButton";
+import InputField from "@/components/InputField";
 import OAuth from "@/components/OAuth";
-import { Link, router } from "expo-router";
+import { icons, images } from "@/constants";
 import { useSignUp } from "@clerk/clerk-expo";
-import { ReactNativeModal } from "react-native-modal";
 import { TokenCreateParams } from "@stripe/stripe-js";
+import { Link, router } from "expo-router";
+import { useState } from "react";
+import { Alert, Image, ScrollView, Text, View } from "react-native";
+import { ReactNativeModal } from "react-native-modal";
 import Verification = TokenCreateParams.Account.Company.Verification;
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -42,6 +42,17 @@ const SignUp = () => {
       });
       if (signUpAttempt.status === "complete") {
         //TODO: Create a new user in database
+        await fetch("/(api)/user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            clerkId: signUpAttempt.createdUserId,
+          }),
+        });
         await setActive({ session: signUpAttempt.createdSessionId });
         setVerification({ ...verification, state: "success" });
       } else {
@@ -108,7 +119,9 @@ const SignUp = () => {
           </Link>
         </View>
         <ReactNativeModal
-          isVisible={verification.state === "pending"}
+          isVisible={
+            verification.state === "pending" || verification.state === "failed"
+          }
           onModalHide={() => {
             if (verification.state === "success") setShowSuccessModal(true);
           }}

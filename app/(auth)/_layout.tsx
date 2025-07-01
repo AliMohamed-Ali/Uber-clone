@@ -1,9 +1,6 @@
 import { Stack } from "expo-router";
-import { useAuth } from "@clerk/clerk-expo";
 
 const Layout = () => {
-  const { isSignedIn } = useAuth();
-  console.log("isSignedIn in auth:", isSignedIn);
   return (
     <Stack>
       <Stack.Screen name="welcome" options={{ headerShown: false }} />
