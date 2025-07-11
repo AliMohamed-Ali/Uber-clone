@@ -55,7 +55,7 @@ const Onboarding = () => {
             : swiperRef.current?.scrollBy(1)
         }
         title={isLastSlide ? "Get Started" : "Next"}
-        className="w-10/12 mt-10 mb-4"
+        className="w-9/12 mt-10 mb-4"
       />
     </SafeAreaView>
   );

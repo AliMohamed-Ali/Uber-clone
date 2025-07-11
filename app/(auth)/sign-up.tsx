@@ -41,7 +41,6 @@ const SignUp = () => {
         code: verification.code,
       });
       if (signUpAttempt.status === "complete") {
-        //TODO: Create a new user in database
         await fetch("/(api)/user", {
           method: "POST",
           headers: {
