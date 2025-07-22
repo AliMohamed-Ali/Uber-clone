@@ -29,7 +29,7 @@ const SignIn = () => {
   }, [form, isLoaded, signIn, setActive]);
 
   return (
-    <SafeAreaView className="flex bg-white">
+    <SafeAreaView className="flex bg-white mb-5">
       <ScrollView className="bg-white">
         <View className="flex-1 bg-white">
           <View className="relative w-full h-[250px]">

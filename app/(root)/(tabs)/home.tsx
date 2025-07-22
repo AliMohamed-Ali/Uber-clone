@@ -2,7 +2,11 @@ import GoogleTextInput from "@/components/GoogleTextInput";
 import Map from "@/components/Map";
 import RideCard from "@/components/RideCard";
 import { icons, images } from "@/constants";
+import { useLocationStore } from "@/store";
 import { useUser } from "@clerk/clerk-expo";
+import * as Location from "expo-location";
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -120,16 +124,49 @@ const recentRides = [
   },
 ];
 export default function Page() {
+  const { setUserLocation, setDestinationLocation } = useLocationStore();
+  const [hasPermission, setHasPermission] = useState(false);
   const { user } = useUser();
   const loading = true; // Simulating loading state, replace with actual loading logic
   const handleLogout = async () => {
     // Implement logout logic here
     console.log("User logged out");
   };
-  const handleDestinationPress = () => {
-    // Implement navigation to destination search here
-    console.log("Navigate to destination search");
+  const handleDestinationPress = (location:{
+    latitude: number;
+    longitude: number;
+    address: string;
+  }) => {
+    setDestinationLocation(location);
+    router.push("/(root)/find-ride");
   };
+  useEffect(() => {
+    const requestLocationPermission = async () => {
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== "granted") {
+          setHasPermission(false);
+          console.error("Location permission not granted");
+          return;
+        }
+        const location = await Location.getCurrentPositionAsync();
+        const address = await Location.reverseGeocodeAsync({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        });
+        setUserLocation({
+          // latitude: location.coords.latitude,
+          // longitude: location.coords.longitude,
+          latitude: 37.78825,
+          longitude: -122.4324,
+          address: `${address[0].name}, ${address[0].region}`,
+        });
+      } catch (error) {
+        console.error("Error requesting location permission:", error);
+      }
+    };
+    requestLocationPermission();
+  }, []);
   return (
     <SafeAreaView className="bg-general-500">
       <FlatList
@@ -172,11 +209,12 @@ export default function Page() {
                 <Image source={icons.out} className="w-6 h-6" />
               </TouchableOpacity>
             </View>
+            {/* TODO: handle the error here */}
             <GoogleTextInput
               icon={icons.search}
               containerStyle="bg-white shadow-md shadow-neutral-300"
-              onPress={handleDestinationPress}
-            />
+              handlePress={handleDestinationPress}
+            /> 
             <>
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Your current location{" "}
