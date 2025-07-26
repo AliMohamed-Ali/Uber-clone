@@ -1442,6 +1442,30 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
+  - react-native-geolocation (3.4.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-get-random-values (1.11.0):
     - React-Core
   - react-native-maps (1.20.1):
@@ -2078,6 +2102,95 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.7.1)
+  - Stripe (24.16.2):
+    - StripeApplePay (= 24.16.2)
+    - StripeCore (= 24.16.2)
+    - StripePayments (= 24.16.2)
+    - StripePaymentsUI (= 24.16.2)
+    - StripeUICore (= 24.16.2)
+  - stripe-react-native (0.50.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Stripe (~> 24.16.1)
+    - stripe-react-native/NewArch (= 0.50.1)
+    - StripeApplePay (~> 24.16.1)
+    - StripeFinancialConnections (~> 24.16.1)
+    - StripePayments (~> 24.16.1)
+    - StripePaymentSheet (~> 24.16.1)
+    - StripePaymentsUI (~> 24.16.1)
+    - Yoga
+  - stripe-react-native/NewArch (0.50.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Stripe (~> 24.16.1)
+    - StripeApplePay (~> 24.16.1)
+    - StripeFinancialConnections (~> 24.16.1)
+    - StripePayments (~> 24.16.1)
+    - StripePaymentSheet (~> 24.16.1)
+    - StripePaymentsUI (~> 24.16.1)
+    - Yoga
+  - StripeApplePay (24.16.2):
+    - StripeCore (= 24.16.2)
+  - StripeCore (24.16.2)
+  - StripeFinancialConnections (24.16.2):
+    - StripeCore (= 24.16.2)
+    - StripeUICore (= 24.16.2)
+  - StripePayments (24.16.2):
+    - StripeCore (= 24.16.2)
+    - StripePayments/Stripe3DS2 (= 24.16.2)
+  - StripePayments/Stripe3DS2 (24.16.2):
+    - StripeCore (= 24.16.2)
+  - StripePaymentSheet (24.16.2):
+    - StripeApplePay (= 24.16.2)
+    - StripeCore (= 24.16.2)
+    - StripePayments (= 24.16.2)
+    - StripePaymentsUI (= 24.16.2)
+  - StripePaymentsUI (24.16.2):
+    - StripeCore (= 24.16.2)
+    - StripePayments (= 24.16.2)
+    - StripeUICore (= 24.16.2)
+  - StripeUICore (24.16.2):
+    - StripeCore (= 24.16.2)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2141,6 +2254,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -2179,6 +2293,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2191,6 +2306,14 @@ SPEC REPOS:
     - SDWebImageSVGCoder
     - SDWebImageWebPCoder
     - SocketRocket
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripeFinancialConnections
+    - StripePayments
+    - StripePaymentSheet
+    - StripePaymentsUI
+    - StripeUICore
 
 EXTERNAL SOURCES:
   boost:
@@ -2310,6 +2433,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
   react-native-get-random-values:
     :path: "../node_modules/react-native-get-random-values"
   react-native-maps:
@@ -2386,6 +2511,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  stripe-react-native:
+    :path: "../node_modules/@stripe/stripe-react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2451,6 +2578,7 @@ SPEC CHECKSUMS:
   React-logger: 694787b12186eeeadccdfdc6769890e9080c1f11
   React-Mapbuffer: a0ee08ac29b8a2c08692aa0d51cefa1c88860e17
   React-microtasksnativemodule: ef2292ca147fa8793305e4693586ad0caf3afad3
+  react-native-geolocation: d43962eb0be1b0056ba5c1f95e94fb7907494268
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-maps: 9febd31278b35cd21e4fad2cf6fa708993be5dab
   react-native-safe-area-context: 7e926a200d4bc9c56562275743705c6b56176455
@@ -2494,6 +2622,15 @@ SPEC CHECKSUMS:
   SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
+  Stripe: ae1b368097280ad027c1ec4a817a0a78bb74a6ee
+  stripe-react-native: 1a1c8d1550e7cf7f7ae333138fdb5c19519be980
+  StripeApplePay: 66dc43ec1284904a2cf4c5a0906f86296d23afbd
+  StripeCore: f3a62397cecaf4da1827bcf07de7312ec1f3b96e
+  StripeFinancialConnections: ca4584ba0e08649787d7672b9ca4bb3c972e3d43
+  StripePayments: b3e7817d821ceedd469008d17d94a1494ff1b624
+  StripePaymentSheet: f4f5b71cef665f05a185c29b2d4b59e7dd8c117d
+  StripePaymentsUI: d489e73bf790da1c74e642021475b1a09a4a4500
+  StripeUICore: 723e5024c83acb5ba5e71335e110a471b182a74d
   Yoga: a6cb833e04fb8c59a012b49fb1d040fcb0cbb633
 
 PODFILE CHECKSUM: 82a15b8d665b2026f885b18e1aec55960184e350

@@ -6,7 +6,34 @@ import { GoogleInputProps } from "@/types/type";
 import "react-native-get-random-values";
 
 const googlePlacesApiKey = process.env.EXPO_PUBLIC_PLACES_API_KEY;
+const predefinedPlaces = [
+  {
+    description: "Work",
+    geometry: {
+      location: {
+        lat: 37.7749,
+        lng: -122.4194,
+        latitude: 37.7749,
+        longitude: -122.4194,
+      },
+    }, // Replace with actual lat/lng
+  },
+  {
+    description: "Home",
+    geometry: {
+      location: {
+        lat: 34.0522,
+        lng: -118.2437,
+        latitude: 34.0522,
+        longitude: -118.2437,
+      },
+    }, // Replace with actual lat/lng
+  },
+];
 
+if (!googlePlacesApiKey) {
+  console.warn("Google Places API key is missing!");
+}
 const GoogleTextInput = ({
   icon,
   initialLocation,
@@ -20,7 +47,7 @@ const GoogleTextInput = ({
     >
       <GooglePlacesAutocomplete
         fetchDetails={true}
-        // predefinedPlaces={[]}
+        predefinedPlaces={predefinedPlaces}
         placeholder="Search"
         debounce={200}
         styles={{
